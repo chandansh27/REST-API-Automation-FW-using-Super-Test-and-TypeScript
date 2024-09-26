@@ -1,9 +1,8 @@
-import AdminController from "../controller/admin.controller";
 import CategoriesController from "../controller/Categories.controller";
 import Config from "../config/base.config";
+import { getCategoriyId, login } from "../utils/helper";
 
 const categoriesController = new CategoriesController();
-const adminController = new AdminController();
 
 describe('Categories', () => {
 
@@ -18,9 +17,7 @@ describe('Categories', () => {
         let token;
 
         beforeAll(async () => {
-            const data = {"email": Config.email,"password": Config.password}
-            const res = await adminController.postAdminLogin(data);
-            token = res.body.token;
+         token =  await login(Config.email, Config.password);
 
         })
         
@@ -34,22 +31,17 @@ describe('Categories', () => {
     });
 
     describe('Update Categories', () => {
-        let token, postRes;
+        let token, categoryId;
 
         beforeAll(async () => {
-            const data = {"email": Config.email,"password": Config.password}
-            const res = await adminController.postAdminLogin(data);
-            token = res.body.token;
-
-            const body = {"name": "Test Category " + Math.floor(Math.random() * 10000)}
-            postRes = await categoriesController.postCategories(body)
-            .set("Authorization", "Bearer " + token)
+            token =  await login(Config.email, Config.password);
+            categoryId = await getCategoriyId(token); 
 
         })
 
         it('PUT /categories/id', async () => {
             const body = {"name": "Test Category Updated " + Math.floor(Math.random() * 10000)}
-            const res = await categoriesController.putCategories(postRes.body._id, body )
+            const res = await categoriesController.putCategories(categoryId, body )
             .set("Authorization", "Bearer " + token)
             expect(res.statusCode).toBe(200);
             expect(res.body.name).toBe(body.name);
@@ -61,14 +53,8 @@ describe('Categories', () => {
         let token, categoryId;
 
         beforeAll(async () => {
-            const body = {"email": Config.email,"password": Config.password}
-            const res = await adminController.postAdminLogin(body);
-            token = res.body.token;
-
-            const postBody = {"name": "Test Category " + Math.floor(Math.random() * 10000)}
-            const postRes = await categoriesController.postCategories(postBody)
-            .set("Authorization", "Bearer " + token);
-            categoryId = postRes.body._id;
+            token =  await login(Config.email, Config.password);
+            categoryId = await getCategoriyId(token);
            
         });
 
