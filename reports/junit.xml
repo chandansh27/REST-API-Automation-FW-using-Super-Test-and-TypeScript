@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="25" failures="1" errors="0" time="24.636">
-  <testsuite name="Upload File" errors="0" failures="0" skipped="0" timestamp="2024-09-27T05:08:18" time="6.303" tests="2">
-    <testcase classname="Upload File POST /upload/single" name="Upload File POST /upload/single" time="1.777">
+<testsuites name="jest tests" tests="25" failures="2" errors="0" time="25.076">
+  <testsuite name="POC Tests" errors="0" failures="1" skipped="0" timestamp="2024-09-28T10:36:45" time="6.3" tests="6">
+    <testcase classname="POC Tests GET Requests GET /posts" name="POC Tests GET Requests GET /posts" time="0.483">
     </testcase>
-    <testcase classname="Upload File POST /upload/multiple" name="Upload File POST /upload/multiple" time="2.092">
+    <testcase classname="POC Tests GET Requests GET /comments with query params" name="POC Tests GET Requests GET /comments with query params" time="0.431">
     </testcase>
-  </testsuite>
-  <testsuite name="POC Tests" errors="0" failures="1" skipped="0" timestamp="2024-09-27T05:08:18" time="6.872" tests="6">
-    <testcase classname="POC Tests GET Requests GET /posts" name="POC Tests GET Requests GET /posts" time="0.439">
-    </testcase>
-    <testcase classname="POC Tests GET Requests GET /comments with query params" name="POC Tests GET Requests GET /comments with query params" time="0.761">
-    </testcase>
-    <testcase classname="POC Tests POST Request POST /posts" name="POC Tests POST Request POST /posts" time="0.469">
+    <testcase classname="POC Tests POST Request POST /posts" name="POC Tests POST Request POST /posts" time="0.666">
       <failure>Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: &quot;Naruto, One Piece, Hunter X Hunter&quot;
@@ -21,47 +15,61 @@ Received: &quot;My Fav animes&quot;
     at fulfilled (F:\api-automation-dilpreet-udamey\specs\poc.spec.ts:5:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
     </testcase>
-    <testcase classname="POC Tests PUT Request PUT /posts/{id}" name="POC Tests PUT Request PUT /posts/{id}" time="1.078">
+    <testcase classname="POC Tests PUT Request PUT /posts/{id}" name="POC Tests PUT Request PUT /posts/{id}" time="1.104">
     </testcase>
-    <testcase classname="POC Tests PATCH Request PATCH /posts/{id}" name="POC Tests PATCH Request PATCH /posts/{id}" time="0.972">
+    <testcase classname="POC Tests PATCH Request PATCH /posts/{id}" name="POC Tests PATCH Request PATCH /posts/{id}" time="0.94">
     </testcase>
-    <testcase classname="POC Tests DELETE Requests DELETE /posts/{id}" name="POC Tests DELETE Requests DELETE /posts/{id}" time="0.702">
-    </testcase>
-  </testsuite>
-  <testsuite name="Categories" errors="0" failures="0" skipped="0" timestamp="2024-09-27T05:08:18" time="13.337" tests="4">
-    <testcase classname="Categories Get/ categories" name="Categories Get/ categories" time="2.114">
-    </testcase>
-    <testcase classname="Categories Create Categories POST /categories" name="Categories Create Categories POST /categories" time="1.097">
-    </testcase>
-    <testcase classname="Categories Update Categories PUT /categories/id" name="Categories Update Categories PUT /categories/id" time="1.087">
-    </testcase>
-    <testcase classname="Categories Delete Categories Delete /categories" name="Categories Delete Categories Delete /categories" time="1.086">
+    <testcase classname="POC Tests DELETE Requests DELETE /posts/{id}" name="POC Tests DELETE Requests DELETE /posts/{id}" time="0.518">
     </testcase>
   </testsuite>
-  <testsuite name=" Brands" errors="0" failures="0" skipped="0" timestamp="2024-09-27T05:08:18" time="23.307" tests="13">
-    <testcase classname=" Brands Fetch /brands GET /brands" name=" Brands Fetch /brands GET /brands" time="2.702">
+  <testsuite name="Upload File" errors="0" failures="0" skipped="0" timestamp="2024-09-28T10:36:45" time="6.752" tests="2">
+    <testcase classname="Upload File POST /upload/single" name="Upload File POST /upload/single" time="2.545">
     </testcase>
-    <testcase classname=" Brands Create brands POST /brands" name=" Brands Create brands POST /brands" time="0.001">
+    <testcase classname="Upload File POST /upload/multiple" name="Upload File POST /upload/multiple" time="2.056">
     </testcase>
-    <testcase classname=" Brands Create brands Schema Verification - Name is a mandatory filed" name=" Brands Create brands Schema Verification - Name is a mandatory filed" time="0.91">
+  </testsuite>
+  <testsuite name="Categories" errors="0" failures="1" skipped="0" timestamp="2024-09-28T10:36:45" time="13.916" tests="4">
+    <testcase classname="Categories Get/ categories" name="Categories Get/ categories" time="2.957">
     </testcase>
-    <testcase classname=" Brands Create brands Schema Verification - Min char length for name &gt; 1" name=" Brands Create brands Schema Verification - Min char length for name &gt; 1" time="0.897">
+    <testcase classname="Categories Create Categories POST /categories" name="Categories Create Categories POST /categories" time="1.108">
     </testcase>
-    <testcase classname=" Brands Create brands Schema Verification - Max length for name = 30" name=" Brands Create brands Schema Verification - Max length for name = 30" time="1.002">
+    <testcase classname="Categories Update Categories PUT /categories/id" name="Categories Update Categories PUT /categories/id" time="1.01">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 422
+    at F:\api-automation-dilpreet-udamey\specs\categories.spec.ts:46:36
+    at Generator.next (&lt;anonymous&gt;)
+    at fulfilled (F:\api-automation-dilpreet-udamey\specs\categories.spec.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
     </testcase>
-    <testcase classname=" Brands Create brands Schema Verification - Description must be String" name=" Brands Create brands Schema Verification - Description must be String" time="0.911">
+    <testcase classname="Categories Delete Categories Delete /categories" name="Categories Delete Categories Delete /categories" time="1.121">
     </testcase>
-    <testcase classname=" Brands Create brands Business Logic - Duplicate Band entries are not allowed" name=" Brands Create brands Business Logic - Duplicate Band entries are not allowed" time="1.019">
+  </testsuite>
+  <testsuite name=" Brands" errors="0" failures="0" skipped="0" timestamp="2024-09-28T10:36:45" time="23.763" tests="13">
+    <testcase classname=" Brands Fetch /brands GET /brands" name=" Brands Fetch /brands GET /brands" time="3.325">
     </testcase>
-    <testcase classname=" Brands Fetch individual Brand GET /brand/:id Businees Login - GET /brand/invalid_id should throw 404" name=" Brands Fetch individual Brand GET /brand/:id Businees Login - GET /brand/invalid_id should throw 404" time="0.985">
+    <testcase classname=" Brands Create brands POST /brands" name=" Brands Create brands POST /brands" time="0.002">
     </testcase>
-    <testcase classname=" Brands Fetch individual Brand GET /brand/:id GET /brand/:id" name=" Brands Fetch individual Brand GET /brand/:id GET /brand/:id" time="1.095">
+    <testcase classname=" Brands Create brands Schema Verification - Name is a mandatory filed" name=" Brands Create brands Schema Verification - Name is a mandatory filed" time="0.9">
     </testcase>
-    <testcase classname=" Brands Update brands PUT /brands" name=" Brands Update brands PUT /brands" time="1.083">
+    <testcase classname=" Brands Create brands Schema Verification - Min char length for name &gt; 1" name=" Brands Create brands Schema Verification - Min char length for name &gt; 1" time="0.905">
     </testcase>
-    <testcase classname=" Brands Update brands PUT /brands/invalid_id" name=" Brands Update brands PUT /brands/invalid_id" time="0.903">
+    <testcase classname=" Brands Create brands Schema Verification - Max length for name = 30" name=" Brands Create brands Schema Verification - Max length for name = 30" time="0.988">
     </testcase>
-    <testcase classname=" Brands Delete brands DELETE /brands" name=" Brands Delete brands DELETE /brands" time="1.084">
+    <testcase classname=" Brands Create brands Schema Verification - Description must be String" name=" Brands Create brands Schema Verification - Description must be String" time="0.901">
+    </testcase>
+    <testcase classname=" Brands Create brands Business Logic - Duplicate Band entries are not allowed" name=" Brands Create brands Business Logic - Duplicate Band entries are not allowed" time="0.997">
+    </testcase>
+    <testcase classname=" Brands Fetch individual Brand GET /brand/:id Businees Login - GET /brand/invalid_id should throw 404" name=" Brands Fetch individual Brand GET /brand/:id Businees Login - GET /brand/invalid_id should throw 404" time="0.981">
+    </testcase>
+    <testcase classname=" Brands Fetch individual Brand GET /brand/:id GET /brand/:id" name=" Brands Fetch individual Brand GET /brand/:id GET /brand/:id" time="1.028">
+    </testcase>
+    <testcase classname=" Brands Update brands PUT /brands" name=" Brands Update brands PUT /brands" time="1.093">
+    </testcase>
+    <testcase classname=" Brands Update brands PUT /brands/invalid_id" name=" Brands Update brands PUT /brands/invalid_id" time="1.007">
+    </testcase>
+    <testcase classname=" Brands Delete brands DELETE /brands" name=" Brands Delete brands DELETE /brands" time="1.204">
     </testcase>
     <testcase classname=" Brands Delete brands DELETE /brands/invalid_id" name=" Brands Delete brands DELETE /brands/invalid_id" time="0.916">
     </testcase>
